@@ -1,6 +1,6 @@
 package com.example.juegodsarest3.models;
 
-public class Ranking {
+public class UsuarioMin {
 
     String nickname;
     String fecha;
@@ -16,12 +16,12 @@ public class Ranking {
         this.avatar = avatar;
     }
 
-    public Ranking(){
+    public UsuarioMin(){
 
 
     }
 
-    public Ranking(String nickname,String fecha, double puntos,String avatar){
+    public UsuarioMin(String nickname, String fecha, double puntos, String avatar){
         setNickname(nickname);
         setFecha(fecha);
         setPuntos(puntos);

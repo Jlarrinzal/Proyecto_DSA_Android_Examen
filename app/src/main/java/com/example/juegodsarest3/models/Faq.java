@@ -1,6 +1,6 @@
 package com.example.juegodsarest3.models;
 
-public class FAQ {
+public class Faq {
 
     String pregunta;
 
@@ -20,11 +20,11 @@ public class FAQ {
         this.respuesta = respuesta;
     }
 
-    public FAQ(){
+    public Faq(){
 
     }
 
-    public FAQ(String pregunta,String respuesta){
+    public Faq(String pregunta, String respuesta){
         setPregunta(pregunta);
         setRespuesta(respuesta);
     }

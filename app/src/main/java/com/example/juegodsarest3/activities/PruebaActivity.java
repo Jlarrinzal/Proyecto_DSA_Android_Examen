@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.juegodsarest3.models.Faq;
+import com.example.juegodsarest3.models.Prueba;
 import com.example.juegodsarest3.models.Swagger;
 
 import java.util.List;
@@ -21,9 +21,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import com.example.juegodsarest3.R;
 
-public class FAQActivity extends AppCompatActivity {
+public class PruebaActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
-    private AdaptadorFAQ adapter;
+    private AdaptadorPrueba adapter;
     private RecyclerView.LayoutManager layoutManager;
 
     private ProgressBar theProgressBar;
@@ -32,17 +32,17 @@ public class FAQActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_faq);
+        setContentView(R.layout.activity_prueba);
 
-        recyclerView = (RecyclerView) findViewById(R.id.my_new_recycler_view_faq);
-        theProgressBar = (ProgressBar) findViewById(R.id.progressBarfaq);
+        recyclerView = (RecyclerView) findViewById(R.id.my_new_recycler_view_prueba);
+        theProgressBar = (ProgressBar) findViewById(R.id.progressBarPrueba);
 
         recyclerView.setHasFixedSize(true);
 
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        adapter = new AdaptadorFAQ();
+        adapter = new AdaptadorPrueba();
         recyclerView.setAdapter(adapter);
         doApiCall();
 
@@ -64,12 +64,12 @@ public class FAQActivity extends AppCompatActivity {
     }
     private void doApiCall() {
         Swagger swagger = Swagger.retrofit.create(Swagger.class);
-        Call<List<Faq>> call = swagger.getlistaFAQ();
+        Call<List<Prueba>> call = swagger.getPrueba();
 
         theProgressBar.setVisibility(View.VISIBLE);
-        call.enqueue(new Callback<List<Faq>>() {
+        call.enqueue(new Callback<List<Prueba>>() {
             @Override
-            public void onResponse(Call<List<Faq>> call, Response<List<Faq>> response) {
+            public void onResponse(Call<List<Prueba>> call, Response<List<Prueba>> response) {
                 theProgressBar.setVisibility(View.INVISIBLE);
 
                 adapter.setData(response.body());
@@ -77,7 +77,7 @@ public class FAQActivity extends AppCompatActivity {
 
             }
             @Override
-            public void onFailure(Call<List<Faq>> call, Throwable t) {
+            public void onFailure(Call<List<Prueba>> call, Throwable t) {
 
 
                 String msg = "Error con el retrofit: "+t.toString();

@@ -10,10 +10,10 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.juegodsarest3.R;
-import com.example.juegodsarest3.models.FAQ;
+import com.example.juegodsarest3.models.Faq;
 
 public class AdaptadorFAQ extends RecyclerView.Adapter<AdaptadorFAQ.ViewHolder> {
-    private List<FAQ> values;
+    private List<Faq> values;
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -34,12 +34,12 @@ public class AdaptadorFAQ extends RecyclerView.Adapter<AdaptadorFAQ.ViewHolder> 
         }
     }
 
-    public void setData(List<FAQ> myDataset) {
+    public void setData(List<Faq> myDataset) {
         values = myDataset;
         notifyDataSetChanged();
     }
 
-    public void add(int position, FAQ item) {
+    public void add(int position, Faq item) {
         values.add(position, item);
         notifyItemInserted(position);
     }
@@ -51,7 +51,7 @@ public class AdaptadorFAQ extends RecyclerView.Adapter<AdaptadorFAQ.ViewHolder> 
 
     public AdaptadorFAQ(){values = new ArrayList<>();}
 
-    public AdaptadorFAQ(List<FAQ> myDataset) {
+    public AdaptadorFAQ(List<Faq> myDataset) {
         values = myDataset;
     }
 
@@ -73,7 +73,7 @@ public class AdaptadorFAQ extends RecyclerView.Adapter<AdaptadorFAQ.ViewHolder> 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
 
-        FAQ f = values.get(position);
+        Faq f = values.get(position);
         final String pregunta = f.getPregunta();
         holder.txtPregunta.setText(pregunta);
 

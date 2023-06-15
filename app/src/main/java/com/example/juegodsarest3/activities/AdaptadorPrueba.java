@@ -13,11 +13,12 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.juegodsarest3.R;
+import com.example.juegodsarest3.models.Prueba;
 import com.example.juegodsarest3.models.UsuarioMin;
 import com.squareup.picasso.Picasso;
 
-public class AdaptadorRanking extends RecyclerView.Adapter<AdaptadorRanking.ViewHolder> {
-    private List<UsuarioMin> values;
+public class AdaptadorPrueba extends RecyclerView.Adapter<AdaptadorPrueba.ViewHolder> {
+    private List<Prueba> values;
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -33,20 +34,20 @@ public class AdaptadorRanking extends RecyclerView.Adapter<AdaptadorRanking.View
         public ViewHolder(View v) {
             super(v);
             layout = v;
-            txtHeader = (TextView) v.findViewById(R.id.nickname);
-            txtFooter = (TextView) v.findViewById(R.id.fecha);
-            txtFooter2 = (TextView) v.findViewById(R.id.puntos);
-            icon = (ImageView) v.findViewById(R.id.icon2);
+            txtHeader = (TextView) v.findViewById(R.id.prueba1);
+            txtFooter = (TextView) v.findViewById(R.id.prueba2);
+            txtFooter2 = (TextView) v.findViewById(R.id.puntos1);
+            icon = (ImageView) v.findViewById(R.id.icon3);
 
         }
     }
 
-    public void setData(List<UsuarioMin> myDataset) {
+    public void setData(List<Prueba> myDataset) {
         values = myDataset;
         notifyDataSetChanged();
     }
 
-    public void add(int position, UsuarioMin item) {
+    public void add(int position, Prueba item) {
         values.add(position, item);
         notifyItemInserted(position);
     }
@@ -56,21 +57,21 @@ public class AdaptadorRanking extends RecyclerView.Adapter<AdaptadorRanking.View
         notifyItemRemoved(position);
     }
 
-    public AdaptadorRanking(){values = new ArrayList<>();}
+    public AdaptadorPrueba(){values = new ArrayList<>();}
 
-    public AdaptadorRanking(List<UsuarioMin> myDataset) {
+    public AdaptadorPrueba(List<Prueba> myDataset) {
         values = myDataset;
     }
 
 
     @Override
-    public AdaptadorRanking.ViewHolder onCreateViewHolder(ViewGroup parent,
-                                                   int viewType) {
+    public AdaptadorPrueba.ViewHolder onCreateViewHolder(ViewGroup parent,
+                                                          int viewType) {
 
         LayoutInflater inflater = LayoutInflater.from(
                 parent.getContext());
         View v =
-                inflater.inflate(R.layout.activity_row_layout_ranking, parent, false);
+                inflater.inflate(R.layout.activity_row_layout_prueba, parent, false);
 
         ViewHolder vh = new ViewHolder(v);
         return vh;
@@ -80,7 +81,7 @@ public class AdaptadorRanking extends RecyclerView.Adapter<AdaptadorRanking.View
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
 
-        UsuarioMin ra = values.get(position);
+        Prueba ra = values.get(position);
         final String name = ra.getNickname();
         holder.txtHeader.setText(name);
 

@@ -11,9 +11,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.juegodsarest3.models.FAQ;
-import com.example.juegodsarest3.models.Objeto;
-import com.example.juegodsarest3.models.Ranking;
+import com.example.juegodsarest3.models.UsuarioMin;
 import com.example.juegodsarest3.models.Swagger;
 
 import java.util.List;
@@ -66,12 +64,12 @@ public class RankingActivity extends AppCompatActivity {
     }
     private void doApiCall() {
         Swagger swagger = Swagger.retrofit.create(Swagger.class);
-        Call<List<Ranking>> call = swagger.getRanking();
+        Call<List<UsuarioMin>> call = swagger.getRanking();
 
         theProgressBar.setVisibility(View.VISIBLE);
-        call.enqueue(new Callback<List<Ranking>>() {
+        call.enqueue(new Callback<List<UsuarioMin>>() {
             @Override
-            public void onResponse(Call<List<Ranking>> call, Response<List<Ranking>> response) {
+            public void onResponse(Call<List<UsuarioMin>> call, Response<List<UsuarioMin>> response) {
                 theProgressBar.setVisibility(View.INVISIBLE);
 
                 adapter.setData(response.body());
@@ -79,7 +77,7 @@ public class RankingActivity extends AppCompatActivity {
 
             }
             @Override
-            public void onFailure(Call<List<Ranking>> call, Throwable t) {
+            public void onFailure(Call<List<UsuarioMin>> call, Throwable t) {
 
 
                 String msg = "Error con el retrofit: "+t.toString();
